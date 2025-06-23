@@ -7,7 +7,9 @@ const sendButton = document.getElementById('send-button');
 let conversationHistory = [];
 
 const addMessageToChat = (message, role) => {
-    const messageElement = h`<div class="message ${role}-message">${message}</div>`;
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', `${role}-message`);
+    messageElement.textContent = message; // Use textContent to prevent XSS
     chatContainer.appendChild(messageElement);
     chatContainer.scrollTop = chatContainer.scrollHeight; // Auto-scroll to bottom
 };
