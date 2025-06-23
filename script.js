@@ -1,4 +1,4 @@
-import { html } from "lite-jsx";
+import h from "lite-jsx";
 
 const chatContainer = document.getElementById('chat-container');
 const messageInput = document.getElementById('message-input');
@@ -7,7 +7,7 @@ const sendButton = document.getElementById('send-button');
 let conversationHistory = [];
 
 const addMessageToChat = (message, role) => {
-    const messageElement = html`<div class="message ${role}-message">${message}</div>`;
+    const messageElement = h`<div class="message ${role}-message">${message}</div>`;
     chatContainer.appendChild(messageElement);
     chatContainer.scrollTop = chatContainer.scrollHeight; // Auto-scroll to bottom
 };
@@ -85,4 +85,3 @@ messageInput.addEventListener('input', adjustInputHeight); // Adjust height as u
 
 // Initial adjustment in case of pre-filled text (not applicable here, but good practice)
 adjustInputHeight();
-
